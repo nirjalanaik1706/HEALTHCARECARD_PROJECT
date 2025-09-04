@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Semi-transparent white (glass effect) -->
+    <solid android:color="#40FFFFFF" /> <!-- 25% opacity -->
+
+    <!-- Rounded corners -->
+    <corners android:radius="25dp" />
+
+    <!-- Soft border to make it pop -->
+    <stroke
+        android:width="2dp"
+        android:color="#80FFFFFF" /> <!-- 50% white border -->
+
+    <!-- Light shadow (optional for 3D effect on newer APIs) -->
+    <padding android:left="10dp" android:top="10dp"
+        android:right="10dp" android:bottom="10dp" />
+</shape>
