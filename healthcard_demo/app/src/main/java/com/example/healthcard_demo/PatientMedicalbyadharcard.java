@@ -24,7 +24,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientMedicalbyadharcard extends AppCompatActivity {
+
+public class PatientMedicalbyadharcard extends AppCompatActivity 
+{
     ListView sp1;
     ArrayAdapter<String> ad;
     List<String > list;
@@ -38,7 +40,8 @@ public class PatientMedicalbyadharcard extends AppCompatActivity {
         sp1=(ListView) findViewById(R.id.txt_bypatientmedicalid);
         inputSearch=(EditText) findViewById(R.id.byinputSearch);
 
-        inputSearch.addTextChangedListener(new TextWatcher() {
+        inputSearch.addTextChangedListener(new TextWatcher() 
+        {
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
                 // When user changed the Text
