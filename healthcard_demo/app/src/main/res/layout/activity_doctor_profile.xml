@@ -37,19 +37,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                app:hintAnimationEnabled="true"
                 android:textColorHint="@color/white"
-                app:hintTextColor="@color/white"
-                app:boxStrokeColor="@color/white">
+                app:boxStrokeColor="@color/white"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/white">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/AppFontStyle"
+                    android:background="@drawable/blur_bg"
                     android:id="@+id/txt_drpmid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/transparent"
                     android:enabled="false"
-                    android:fontFamily="@font/opensans"
                     android:hint="Doctor Id"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions"
@@ -71,14 +71,14 @@
                 app:hintTextColor="@color/white"
                 app:boxStrokeColor="@color/white">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/AppFontStyle"
+                    android:background="@drawable/blur_bg"
                     android:id="@+id/txt_drpname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/transparent"
                     android:enabled="false"
-                    android:fontFamily="@font/opensans"
                     android:hint="User Name"
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
@@ -100,14 +100,14 @@
                 app:hintTextColor="@color/white"
                 app:boxStrokeColor="@color/white">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/AppFontStyle"
+                    android:background="@drawable/blur_bg"
                     android:id="@+id/txt_drpaddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/transparent"
                     android:enabled="false"
-                    android:fontFamily="@font/opensans"
                     android:hint="User Address"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions"
@@ -129,14 +129,14 @@
                 app:hintTextColor="@color/white"
                 app:boxStrokeColor="@color/white">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/AppFontStyle"
+                    android:background="@drawable/blur_bg"
                     android:id="@+id/txt_drpphone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/transparent"
                     android:enabled="false"
-                    android:fontFamily="@font/opensans"
                     android:hint="User Mobile Number"
                     android:importantForAutofill="no"
                     android:inputType="phone"
@@ -150,16 +150,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                style="@style/AppFontStyle"
+                android:background="@drawable/blur_bg"
                 android:id="@+id/btn_drbackk"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_rounded"
                 android:text="Back"
-                android:textStyle="bold"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background_1img"
     tools:context=".AddHealthissue">
     <View
         android:layout_width="match_parent"
@@ -58,20 +59,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:orientation="vertical"
-        android:background="@color/purple_200">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_mobile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
+            style="@style/AppFontStyle"
             android:text="Select History"
             android:textSize="18sp"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:fontFamily="@font/opensans"
-            android:textColor="@android:color/black"
+            android:background="@drawable/blur_bg"
+            android:textColor="@android:color/white"
             android:singleLine="true"/>
 
         <Spinner
@@ -83,9 +83,10 @@
             android:textSize="15sp"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:background="@android:color/darker_gray"
-            android:fontFamily="@font/opensans"
-            android:textColor="@android:color/black"
+            style="@style/AppFontStyle"
+            android:background="@drawable/blur_bg"
+
+            android:textColor="@android:color/white"
             android:singleLine="true"/>
 
 

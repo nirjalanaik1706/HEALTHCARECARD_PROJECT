@@ -5,10 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background_1img"
     tools:context=".AddHealthissue">
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
+        android:background="@drawable/blur_bg"
+        style="@style/AppFontStyle"
         android:layout_centerVertical="true"
 
 
@@ -18,6 +21,9 @@
     <EditText android:id="@+id/byinputSearch"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:background="@drawable/blur_bg"
+        style="@style/AppFontStyle"
         android:hint="Search User Information by Adhar No.."
         android:inputType="textVisiblePassword"/>
 
@@ -31,9 +37,8 @@
         android:layout_margin="10dp"
         android:layout_gravity="center"
         android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColorHint="@android:color/white"
-        android:background="@drawable/txt_back"
+        android:background="@drawable/blur_bg"
+        style="@style/AppFontStyle"
         />
 
 

@@ -45,13 +45,14 @@
             app:hintAnimationEnabled="true"
             app:hintTextColor="@color/white">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
+
                 android:id="@+id/txt_mobiledddd"
+                style="@style/AppFontStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/opensans"
+                android:background="@drawable/blur_bg"
                 android:hint="Register Mobile Number"
                 android:importantForAutofill="no"
                 android:maxLength="10"
@@ -73,13 +74,13 @@
             app:hintTextColor="@color/white"
             app:boxStrokeColor="@color/white">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_passwordddd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/opensans"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:hint="Enter Your Password"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
@@ -92,14 +93,17 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/btn_adminsiginddd"
+            style="@style/AppFontStyle"
             android:layout_width="300dp"
             android:layout_height="55dp"
-            android:id="@+id/btn_adminsiginddd"
-            android:layout_gravity="center_horizontal"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/glass_button"
+            android:elevation="12dp"
+            android:fontFamily="@font/roboto"
+            android:text="Login "
+            android:textColor="@android:color/white"
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/password_linkk"

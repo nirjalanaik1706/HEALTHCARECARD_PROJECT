@@ -56,13 +56,13 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mid = (EditText) findViewById(R.id.txt_medicalid);
-        name = (EditText) findViewById(R.id.txt_email);
+        name = (EditText) findViewById(R.id.txt_emaild);
         address = (EditText) findViewById(R.id.txt_address);
         phone = (EditText) findViewById(R.id.txt_phone);
         adhar=(EditText)findViewById(R.id.txt_adharcardno);
         password = (EditText) findViewById(R.id.txt_password);
         register = (Button) findViewById(R.id.btn_pregister);
-        tv1 = (TextView) findViewById(R.id.txt_alredyregister);
+        tv1 = (TextView) findViewById(R.id.txt_alredyregisterd);
         sp1=(Spinner)findViewById(R.id.questions);
         ans=(EditText)findViewById(R.id.txt_answer);
         bdate=(EditText)findViewById(R.id.txt_dateofbirth);

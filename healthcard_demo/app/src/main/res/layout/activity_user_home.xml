@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
-    android:orientation="vertical"
-    >
+    android:background="@drawable/background_1img"
+    android:orientation="vertical">
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
@@ -95,8 +93,8 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
-                android:textStyle="bold"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:textSize="20dp"
                 android:textColor="#fff"
                 android:text="Medical History "/>
@@ -106,8 +104,8 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:background="@drawable/button_rounded"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:textSize="20dp"
                 android:layout_marginTop="20dp"
                 android:textColor="#fff"
@@ -116,10 +114,10 @@
             <Button
                 android:id="@+id/btn_addhealthissue"
                 android:layout_width="300dp"
-                android:textStyle="bold"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
                 android:textSize="20dp"
                 android:layout_marginTop="20dp"
                 android:textColor="#fff"
@@ -130,11 +128,10 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
                 android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:textColor="#fff"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:text="Health Card"/>
 
             <Button
@@ -142,9 +139,9 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:textColor="#fff"
                 android:text="Profile"/>
@@ -154,11 +151,10 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
                 android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:textColor="#fff"
+                android:background="@drawable/blur_bg"
+                style="@style/AppFontStyle"
                 android:text="Logout"/>
 
 

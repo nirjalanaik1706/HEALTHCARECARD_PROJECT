@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/background_1img"
     tools:context=".LoginActivity">
 
     <!-- Profile Icon -->
@@ -43,20 +43,20 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_medical_id"
+            style="@style/AppFontStyle"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:background="@drawable/blur_bg"
-            android:hint="Enter Your Medical Id"
             android:drawableStart="@drawable/ic_medical"
             android:drawablePadding="12dp"
             android:gravity="center_vertical"
+            android:hint="Enter Your Medical Id"
+            android:inputType="text"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:inputType="text"
-            android:textSize="16sp"
             android:textColor="@android:color/white"
             android:textColorHint="#B3FFFFFF"
-            style="@style/AppFontStyle" />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

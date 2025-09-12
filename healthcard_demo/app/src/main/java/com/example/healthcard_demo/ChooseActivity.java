@@ -16,7 +16,7 @@ Button doctor,user;
 
 
         doctor=(Button) findViewById(R.id.btn_doctorsignin);
-         user=(Button)findViewById(R.id.btn_deliverysignin);
+         user=(Button)findViewById(R.id.btn_usersignin);
 
         doctor.setOnClickListener(new View.OnClickListener() {
             @Override

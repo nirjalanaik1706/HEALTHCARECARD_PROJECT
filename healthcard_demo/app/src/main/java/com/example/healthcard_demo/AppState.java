@@ -15,8 +15,7 @@ public class AppState {
         return singleInstance;
     }
 
-    public boolean isLoggingOut()
-    {
+    public boolean isLoggingOut() {
         return isLoggingOut;
     }
 
