@@ -9,10 +9,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_centerVertical="true"
-
-
-        />
+        android:layout_centerVertical="true"/>
     <ViewFlipper
         android:id="@+id/vpimg"
         android:layout_marginTop="0dp"
