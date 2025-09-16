@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background_1img"
     tools:context=".AddHealthissue">
     <View
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/three" />
+            android:background="@drawable/background_1img" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -59,9 +60,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_margin="10dp"
-            android:orientation="vertical"
-            android:background="@color/purple_200">
+            android:orientation="vertical">
 
 
 
@@ -73,24 +74,23 @@
                 android:layout_height="50dp"
                 android:hint="Enter Your Medical ID "
                 android:enabled="false"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
+                style="@style/AppFontStyle"
+                android:background="@drawable/blur_bg"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:textSize="20dp"
                 android:textColorHint="@android:color/white"
                 android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/txt_back"
-                />
+                android:layout_gravity="center"/>
 
             <EditText
                 android:id="@+id/txt_date"
+                style="@style/AppFontStyle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="Enter Date "
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 android:enabled="false"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
@@ -98,15 +98,14 @@
                 android:textColorHint="@android:color/white"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
-                android:background="@drawable/txt_back"
-                />
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Select Disease"
-    android:textSize="15dp"
-    android:textColor="@color/black"
-    android:textStyle="bold"/>
+                android:background="@drawable/blur_bg" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Disease"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
 
             <Spinner
                 android:id="@+id/txt_diseses"
@@ -120,7 +119,8 @@
                 android:textColorHint="@android:color/white"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
-                android:background="@drawable/txt_back"
+                style="@style/AppFontStyle"
+                android:background="@drawable/blur_bg"
                 />
 
             <TextView
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:text="Select Symptoms"
                 android:textSize="15dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"/>
 
             <Spinner
@@ -143,8 +143,8 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColorHint="@android:color/white"
-                android:background="@drawable/txt_back"
-                />
+                style="@style/AppFontStyle"
+                android:background="@drawable/blur_bg"                />
 
 
             <Button
@@ -152,11 +152,11 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:background="@drawable/button_rounded"
+                style="@style/AppFontStyle"
+                android:background="@drawable/blur_bg"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:textColor="#fff"
                 android:text="Add Health Issue"/>
             <TextView
                 android:layout_width="match_parent"

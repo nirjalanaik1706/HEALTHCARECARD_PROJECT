@@ -52,26 +52,26 @@
             android:background="@drawable/one" />
     </ViewFlipper>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    android:orientation="horizontal">
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="* Your Medical Id -"
-        android:textSize="15dp"
-        android:textStyle="bold"
 
-        android:textColor="@android:color/holo_red_light"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:id="@+id/txt_id"
-        android:textColor="@android:color/holo_red_light"/>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* Your Medical Id -"
+            android:textSize="15dp"
+            android:textStyle="bold"
+
+            android:textColor="@android:color/holo_red_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:id="@+id/txt_id"
+            android:textColor="@android:color/holo_red_light"/>
 
 </LinearLayout>
 
@@ -166,4 +166,3 @@
 </ScrollView>
 
     </LinearLayout>
-

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
+    android:background="@drawable/background_1img"
     android:orientation="vertical"
     >
     <View
@@ -25,7 +24,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="292dp"
             android:background="@drawable/two" />
 
         <ImageView
@@ -81,70 +80,63 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-
+            android:layout_gravity="center"
 
             android:orientation="vertical">
 
 
-
             <Button
                 android:id="@+id/btn_drmedical"
+                style="@style/AppFontStyle"
                 android:layout_width="300dp"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="#fff"
-                android:text="Medical History"/>
-
+                android:layout_gravity="center"
+                android:background="@drawable/blur_bg"
+                android:text="Medical History"
+                android:textSize="20dp" />
 
 
             <Button
                 android:id="@+id/btn_drprofile"
+                style="@style/AppFontStyle"
                 android:layout_width="300dp"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/blur_bg"
+                android:text="Profile"
                 android:textColor="#fff"
-                android:text="Profile"/>
+                android:textSize="20dp" />
 
 
             <Button
                 android:id="@+id/btn_draboutus"
+                style="@style/AppFontStyle"
                 android:layout_width="300dp"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/blur_bg"
+                android:text="About Us"
                 android:textColor="#fff"
-                android:text="About Us"/>
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/btn_drlogout"
+                style="@style/AppFontStyle"
                 android:layout_width="300dp"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_rounded"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:textColor="#fff"
-                android:text="Logout"/>
+                android:background="@drawable/blur_bg"
+                android:text="Logout"
+                android:textSize="20dp" />
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
         </LinearLayout>
     </ScrollView>
