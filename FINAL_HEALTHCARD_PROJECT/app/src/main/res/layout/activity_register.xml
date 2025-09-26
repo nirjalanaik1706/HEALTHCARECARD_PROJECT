@@ -189,7 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Date of Birth"
-                    android:inputType="date"
+                    android:inputType="date|text"
                     android:singleLine="true"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
@@ -275,7 +275,7 @@
             <!-- Register Button -->
             <Button
                 style="@style/AppFontStyle"
-                android:background="@drawable/blur_bg"
+                android:background="@drawable/glass_button"
                 android:id="@+id/btn_pregister"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -286,7 +286,7 @@
 
             <!-- Already Registered -->
             <TextView
-                android:id="@+id/txt_alreadyregister"
+                android:id="@+id/txt_alredyregisterd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

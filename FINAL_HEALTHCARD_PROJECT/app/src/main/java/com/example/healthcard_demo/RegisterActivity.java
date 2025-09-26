@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mid = (EditText) findViewById(R.id.txt_medicalid);
-        name = (EditText) findViewById(R.id.txt_emaild);
+        name = (EditText) findViewById(R.id.txt_name);
         address = (EditText) findViewById(R.id.txt_address);
         phone = (EditText) findViewById(R.id.txt_phone);
         adhar=(EditText)findViewById(R.id.txt_adharcardno);
@@ -123,10 +123,6 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
-
         try {
             adapter = new TestAdapter(this);
             adapter.createDatabase();

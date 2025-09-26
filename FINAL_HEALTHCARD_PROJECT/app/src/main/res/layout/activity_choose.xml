@@ -56,29 +56,36 @@
             android:src="@drawable/logo1_img" />
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_doctorsignin"
         android:layout_width="260dp"
         android:layout_height="54dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/glass_button"
-        android:elevation="12dp"
         android:fontFamily="@font/roboto"
         android:text="Login As Doctor"
+        android:background="@drawable/blur_bg"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:elevation="12dp"
+        app:background="@drawable/glass_button"
+        app:backgroundTint="@null"
+        app:cornerRadius="25dp" />
 
-    <!-- User Button with Glass Effect -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_usersignin"
         android:layout_width="260dp"
         android:layout_height="54dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/glass_button"
-        android:elevation="12dp"
         android:fontFamily="@font/roboto"
         android:text="Login As User"
+        android:background="@drawable/blur_bg"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:elevation="12dp"
+        app:background="@drawable/glass_button"
+        app:backgroundTint="@null"
+        app:cornerRadius="25dp" />
+
+
 
 </LinearLayout>

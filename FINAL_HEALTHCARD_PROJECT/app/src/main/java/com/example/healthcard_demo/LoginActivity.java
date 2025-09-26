@@ -14,128 +14,107 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-TextView tv1,pass;
-    Button b1;
-    EditText mobile,password;
-    TestAdapter adapter;
-    String smedicalid,spassword;
+
+    private TextView tvRegister, tvForgetPassword;
+    private Button btnLogin;
+    private EditText edtMedicalId, edtPassword;
+    private TestAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login); // MUST be first
 
-        tv1=(TextView) findViewById(R.id.register);
-        pass=(TextView)findViewById(R.id.password_link);
+        // Initialize views
+        tvRegister = findViewById(R.id.register);
+        tvForgetPassword = findViewById(R.id.password_link);
+        btnLogin = findViewById(R.id.btn_login);
+        edtMedicalId = findViewById(R.id.txt_mobile);
+        edtPassword = findViewById(R.id.txt_password);
 
-        pass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-Intent i=new Intent(LoginActivity.this,ForgetPassword.class);
-startActivity(i);
-            }
-        });
-        tv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(i);
-            }
-        });
-
-        b1=(Button)findViewById(R.id.btn_login);
-        mobile=(EditText)findViewById(R.id.txt_mobile);
-        password=(EditText)findViewById(R.id.txt_password);
-
-        tv1=(TextView) findViewById(R.id.register);
+        // Initialize database adapter safely
         try {
-
-            adapter=new TestAdapter(this);
+            adapter = new TestAdapter(this);
             adapter.createDatabase();
             adapter.open();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Database error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
-            b1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        // Click listener for forget password
+        tvForgetPassword.setOnClickListener(view -> {
+            Intent i = new Intent(LoginActivity.this, ForgetPassword.class);
+            startActivity(i);
+        });
 
-                    smedicalid = mobile.getText().toString().trim();
-                    spassword= password.getText().toString().trim();
+        // Click listener for register
+        tvRegister.setOnClickListener(view -> {
+            Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(i);
+        });
 
-                    if(TextUtils.isEmpty(smedicalid))
-                    {
-                        mobile.setError("Medical Id is Required.");
-                        return;
-                    }
+        // Click listener for login
+        btnLogin.setOnClickListener(view -> {
+            String medicalId = edtMedicalId.getText().toString().trim();
+            String password = edtPassword.getText().toString().trim();
 
-                    if(TextUtils.isEmpty(spassword))
-                    {
-                        password.setError("Password is Required.");
-                        return;
-                    }
+            if (TextUtils.isEmpty(medicalId)) {
+                edtMedicalId.setError("Medical Id is Required.");
+                return;
+            }
 
-                    int i = adapter.checkUserLogin(smedicalid,spassword);
-                    if (i == 1) {
+            if (TextUtils.isEmpty(password)) {
+                edtPassword.setError("Password is Required.");
+                return;
+            }
 
-                        userlogin();
-                        return;
+            // Check login in database
+            int i = adapter.checkUserLogin(medicalId, password);
+            if (i == 1) {
+                userLogin(medicalId);
+                return;
+            }
 
-                    }
+            // Default doctor login
+            if (medicalId.equalsIgnoreCase("9197") && password.equalsIgnoreCase("1234")) {
+                Intent intent = new Intent(getApplicationContext(), DoctorHomeActivity.class);
+                startActivity(intent);
+                Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                    if (smedicalid.equalsIgnoreCase("9197")&&(spassword.equalsIgnoreCase("1234"))){
-                        Intent intent = new Intent(getApplicationContext(), DoctorHomeActivity.class);
-                        startActivity(intent);
-
-                        Toast.makeText(LoginActivity.this, "Login Successfull", Toast.LENGTH_SHORT).show();
-                        return;
-
-                    }
-
-                    else{
-                        Toast.makeText(LoginActivity.this, "Invalid Medical ID Or Password", Toast.LENGTH_SHORT).show();
-                        return;
-
-                    }
-
-
-                }
-            });
-
-        }catch (Exception e){}
-
-
+            Toast.makeText(LoginActivity.this, "Invalid Medical ID Or Password", Toast.LENGTH_SHORT).show();
+        });
     }
 
-    private void userlogin() {
-        final ProgressDialog dialog =
-                new ProgressDialog(LoginActivity.this);
+    private void userLogin(String medicalId) {
+        final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
         dialog.setIcon(R.drawable.login);
         dialog.setTitle("Login");
-        dialog.setMessage("Please wait User Login is Processing...");
+        dialog.setMessage("Please wait, User Login is Processing...");
         dialog.show();
 
-        final Runnable progressRunnable = new Runnable() {
+        // Delay to simulate login process
+        new Handler().postDelayed(() -> {
+            dialog.dismiss();
 
-            @Override
-            public void run() {
-                dialog.cancel();
-                String mpass = null;
+            Intent i = new Intent(LoginActivity.this, UserHomeActivity.class);
+            i.putExtra("Key", medicalId);
+            startActivity(i);
 
-                Intent i = new Intent(LoginActivity.this, UserHomeActivity.class);
-                i.putExtra("Key",smedicalid);
-                startActivity(i);
+            Toast.makeText(getApplicationContext(), "Your Login is Successful...", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getApplicationContext(), "Your Login is Successfull..." , Toast.LENGTH_SHORT).show();
-
-                mobile.setText("");
-                password.setText("");
-
-
-            }
-        };
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 6000);
-
-
+            edtMedicalId.setText("");
+            edtPassword.setText("");
+        }, 3000); // Reduced to 3 seconds for better UX
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.close(); // Close database safely
+        }
     }
+}
