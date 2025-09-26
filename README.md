@@ -36,5 +36,34 @@ This project is especially useful for **clinics, hospitals, and individual patie
 - **IDE:** Android Studio  
 
 ---
+## 📂 Project Folder Structure  
 
-## 📂 Project Structure  
+```plaintext
+HealthcareCard/                     # Root directory of the project
+│
+├── app/                            # Main application module
+│   ├── java/com/example/healthcarecard/   # Source code
+│   │   ├── activities/             # All activity classes (LoginActivity, MainActivity, etc.)
+│   │   ├── adapters/               # RecyclerView/ListView adapters
+│   │   ├── models/                 # Data models (Patient, Doctor, Reports, etc.)
+│   │   ├── utils/                  # Utility classes (validation, helpers, constants)
+│   │   └── services/               # Background services (sync, notifications)
+│   │
+│   ├── res/                        # App resources
+│   │   ├── drawable/               # Images, icons, and custom graphics
+│   │   ├── layout/                 # XML layout files (UI screens)
+│   │   ├── mipmap/                 # App launcher icons
+│   │   ├── values/                 # Colors, strings, styles
+│   │   └── xml/                    # Additional configurations (network_security_config.xml etc.)
+│   │
+│   └── AndroidManifest.xml         # App configuration file
+│
+├── gradle/                         # Gradle wrapper files
+│
+├── build.gradle                    # Gradle build script (app-level)
+├── settings.gradle                 # Gradle settings
+├── gradlew                         # Gradle wrapper (Linux/Mac)
+├── gradlew.bat                     # Gradle wrapper (Windows)
+├── README.md                       # Project documentation
+└── LICENSE                         # License file
+
