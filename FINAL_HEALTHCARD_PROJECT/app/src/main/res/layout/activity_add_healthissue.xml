@@ -146,7 +146,7 @@
                 style="@style/AppFontStyle"
                 android:background="@drawable/blur_bg"                />
 
-
+            <!-- android -->
             <Button
                 android:id="@+id/btn_adddises"
                 android:layout_width="300dp"
