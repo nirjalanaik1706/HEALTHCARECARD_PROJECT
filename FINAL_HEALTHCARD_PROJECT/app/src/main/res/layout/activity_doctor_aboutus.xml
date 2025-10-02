@@ -20,12 +20,12 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/one" />
+            android:background="@drawable/one"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/three" />
+            android:background="@drawable/three"/>
 
         <ImageView
             android:layout_width="match_parent"
