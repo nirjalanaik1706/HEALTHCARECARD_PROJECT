@@ -211,8 +211,6 @@ String mobile;
                                             public void onClick(DialogInterface arg0, int arg1) {
 
 
-
-
                                             }
                                         });
                                 android.app.AlertDialog alDialog = alertDialogBuilder.create();
