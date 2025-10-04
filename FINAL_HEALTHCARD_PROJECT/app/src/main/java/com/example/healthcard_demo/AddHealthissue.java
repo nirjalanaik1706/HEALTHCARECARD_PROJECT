@@ -54,7 +54,6 @@ String mobile;
         list.add("Pharyngitis");
         list.add("Tussis");
 
-
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hdisease.setAdapter(arrayAdapter);
@@ -124,11 +123,6 @@ String mobile;
                         AddHelthissue();
 
                     }
-
-
-
-
-
 
                 }
             });
