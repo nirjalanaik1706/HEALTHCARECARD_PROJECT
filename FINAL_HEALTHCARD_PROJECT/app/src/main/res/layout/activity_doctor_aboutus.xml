@@ -4,17 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_centerVertical="true"
-
-
-        />
+        android:layout_centerVertical="true"/>
     <ViewFlipper
         android:id="@+id/vpimg"
         android:layout_marginTop="0dp"
@@ -26,17 +20,17 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/one" />
+            android:background="@drawable/one"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/three" />
+            android:background="@drawable/three"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/four" />
+            android:background="@drawable/four"/>
 
         <ImageView
             android:layout_width="match_parent"
