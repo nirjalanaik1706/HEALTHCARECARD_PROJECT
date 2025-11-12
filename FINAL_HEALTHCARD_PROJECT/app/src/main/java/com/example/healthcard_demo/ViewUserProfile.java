@@ -53,7 +53,8 @@ public class ViewUserProfile extends AppCompatActivity {
         }catch (Exception e){}
 
 
-b1.setOnClickListener(new View.OnClickListener() {
+b1.setOnClickListener(new View.OnClickListener()
+                      {
     @Override
     public void onClick(View view) {
         Intent i=new Intent(ViewUserProfile.this,UserHomeActivity.class);

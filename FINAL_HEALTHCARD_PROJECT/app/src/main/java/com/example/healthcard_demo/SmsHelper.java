@@ -14,6 +14,10 @@ public class SmsHelper {
         return android.util.Patterns.PHONE.matcher(phoneNumber).matches();
     }
 
+    // public static ginal String SMS_notification(int number){
+        
+    // }
+
     public static void sendDebugSms(String number, String smsBody) {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(number, null, smsBody, null, null);
