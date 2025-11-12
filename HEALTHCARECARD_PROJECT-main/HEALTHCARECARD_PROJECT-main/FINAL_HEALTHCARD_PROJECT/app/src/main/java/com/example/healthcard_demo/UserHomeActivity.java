@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserHomeActivity extends AppCompatActivity {
-    private static final String TAG = "UserHomeActivity"; 
+    private static final String TAG = "UserHomeActivity"; // Added TAG constant
 
     Button medicalhistory, profile, logout, addhealth, currentdisease, healthcard;
     String mobile;

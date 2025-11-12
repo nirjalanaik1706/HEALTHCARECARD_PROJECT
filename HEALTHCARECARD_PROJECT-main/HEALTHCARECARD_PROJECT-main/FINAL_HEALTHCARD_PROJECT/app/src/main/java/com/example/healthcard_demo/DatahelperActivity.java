@@ -31,14 +31,16 @@ public DatahelperActivity(Context context)
 
 public void createDataBase() throws IOException
 {
+    //If database not exists copy it from the assets
 
     boolean mDataBaseExist = checkDataBase();
     if(!mDataBaseExist)
     {
         this.getReadableDatabase();
         this.close();
-        try
+        try 
         {
+            //Copy the database from assests
             copyDataBase();
             Log.v(TAG, "createDatabase database created");
         } 
@@ -49,7 +51,7 @@ public void createDataBase() throws IOException
         }
     }
 }
-
+    //Check that the database exists here: /data/data/your package/databases/Da Name
     private boolean checkDataBase()
     {
         File dbFile = new File(DB_PATH + DB_NAME);
@@ -58,7 +60,7 @@ public void createDataBase() throws IOException
         return dbFile.exists();
     }
 
-
+    //Copy the database from assets
     private void copyDataBase() throws IOException
     {
         InputStream mInput = mContext.getAssets().open(DB_NAME);
@@ -76,6 +78,7 @@ public void createDataBase() throws IOException
         mInput.close();
     }
 
+    //Open the database, so we can query it
     public boolean openDataBase() throws SQLException
     {
         String mPath = DB_PATH + DB_NAME;

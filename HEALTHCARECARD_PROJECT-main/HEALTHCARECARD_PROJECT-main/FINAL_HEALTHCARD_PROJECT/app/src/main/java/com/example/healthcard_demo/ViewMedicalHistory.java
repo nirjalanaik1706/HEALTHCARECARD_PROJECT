@@ -54,19 +54,29 @@ public class ViewMedicalHistory extends AppCompatActivity {
          /*   sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
                     if(i==0){
+
                         adddiseaseshistory();
+
                     }
+
+
+
                 }
+
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
 
                 }
             });*/
 
+
+
         } catch (Exception e) {
         }
     }
+
     private void adddiseaseshistory() {
 
         layout.setStretchAllColumns(true);
@@ -116,6 +126,10 @@ public class ViewMedicalHistory extends AppCompatActivity {
             row2.setLayoutParams(lp2);
             layout.addView(row2);
             l++;
+
+
         }
+
+
     }
 }
