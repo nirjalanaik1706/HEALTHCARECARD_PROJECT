@@ -226,21 +226,11 @@ String mid,ddate,dname,dsymt;
                             alertbuilder.setView(layout);
 
                         }
-
-
-
                         AlertDialog alertDialog= alertbuilder.create();
                         alertDialog.show();
-
                     };
-
-
                 });
             }
-
-
-
-
             }catch (Exception e){}
 
 
