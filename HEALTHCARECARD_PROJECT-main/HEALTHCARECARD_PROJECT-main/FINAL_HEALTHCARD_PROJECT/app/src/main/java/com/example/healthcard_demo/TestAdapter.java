@@ -749,7 +749,18 @@ public class TestAdapter {
         i = Integer.parseInt(c.getString(0));
         c.close();
         return (i);
-    }*********************************************************************************************************************/
+    }
+	public int checkUserLoginn(String username, String upassword) {
+        int i;
+        String sql = "select count(*) from Register where Mobile='" + username + "' and Password='" + upassword + "'";
+        Cursor c = mDb.rawQuery(sql, null);
+        //Log.w("Cursor", c.getString(0));
+        c.moveToNext();
+        i = Integer.parseInt(c.getString(0));
+        c.close();
+        return (i);
+    }
+	*********************************************************************************************************************/
 
 
 
