@@ -127,7 +127,8 @@ String mobile;
                 }
             });
 
-            msymtons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            msymtons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() 
+                                               {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     if( i==0){
@@ -543,7 +544,9 @@ String mobile;
                             public void onClick(DialogInterface arg0, int arg1) {
                                /* Intent i = new Intent(AddHealthissue.this, UserHomeActivity.class);
                                 i.putExtra("MedicalID",medicalid);
-                                startActivity(i);*/
+                                startActivity(i);
+                               /* Intent i = new Intent(AddHealthissue.this, UserHomeActivity.class);
+                                */
 
 
                             }
