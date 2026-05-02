@@ -38,7 +38,9 @@ public class ViewMedicalHistory extends AppCompatActivity {
             adapter.createDatabase();
             adapter.open();
             Bundle bundle = getIntent().getExtras();
-            id = bundle.getString("Key");
+            if (bundle != null) {
+                id = bundle.getString("Key");
+            }
 
             adddiseaseshistory();
             List<String> list;
@@ -96,40 +98,42 @@ public class ViewMedicalHistory extends AppCompatActivity {
 
 
         Cursor cursor = adapter.selectDisesehistory(id);
-        int l=0;
-        while (cursor.moveToNext()) {
-            TableRow row2 = new TableRow(this);
-            row2.setMinimumHeight(50);
-            if (l % 2 == 0)
-                row2.setBackgroundColor(getResources().getColor(R.color.purple_100));
-            else
-                row2.setBackgroundColor(getResources().getColor(R.color.purple_200));
-            row2.getBackground().setAlpha(40);
+        try {
+            int l = 0;
+            while (cursor.moveToNext()) {
+                TableRow row2 = new TableRow(this);
+                row2.setMinimumHeight(50);
+                if (l % 2 == 0) {
+                    row2.setBackgroundColor(getResources().getColor(R.color.purple_100));
+                } else {
+                    row2.setBackgroundColor(getResources().getColor(R.color.purple_200));
+                }
+                row2.getBackground().setAlpha(40);
 
-            final TextView oid = new TextView(this);
-            oid.setText(cursor.getString(1));
-            //mediid = (cursor.getString(0));
-            oid.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-            oid.setTextColor(Color.BLACK);
-            oid.setPadding(0, 0, 0, 0);
-
-
-            final TextView name = new TextView(this);
-            name.setText(cursor.getString(2));
-            // udname = (cursor.getString(2));
-            name.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-            name.setTextColor(Color.BLACK);
-
-            name.setPadding(0, 0, 0, 0);
-            row2.addView(oid);
-            row2.addView(name);
-            row2.setLayoutParams(lp2);
-            layout.addView(row2);
-            l++;
+                final TextView oid = new TextView(this);
+                oid.setText(cursor.getString(1));
+                //mediid = (cursor.getString(0));
+                oid.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+                oid.setTextColor(Color.BLACK);
+                oid.setPadding(0, 0, 0, 0);
 
 
+                final TextView name = new TextView(this);
+                name.setText(cursor.getString(2));
+                // udname = (cursor.getString(2));
+                name.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+                name.setTextColor(Color.BLACK);
+
+                name.setPadding(0, 0, 0, 0);
+                row2.addView(oid);
+                row2.addView(name);
+                row2.setLayoutParams(lp2);
+                layout.addView(row2);
+                l++;
+            }
+        } finally {
+            cursor.close();
         }
-
 
     }
 }

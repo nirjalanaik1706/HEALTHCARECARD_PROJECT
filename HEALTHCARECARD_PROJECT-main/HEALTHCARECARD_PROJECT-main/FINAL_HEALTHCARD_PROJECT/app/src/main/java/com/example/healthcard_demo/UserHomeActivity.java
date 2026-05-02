@@ -42,11 +42,19 @@ public class UserHomeActivity extends AppCompatActivity {
             adapter.createDatabase();
             adapter.open();
             Bundle bundle = getIntent().getExtras();
-            mobile = bundle.getString("Key");
+            if (bundle != null) {
+                mobile = bundle.getString("Key");
+            }
 
-            Cursor c = adapter.getMedicalid(mobile);
-            while (c.moveToNext()) {
-                tv1.setText(c.getString(0));
+            if (mobile != null && adapter != null) {
+                Cursor c = adapter.getMedicalid(mobile);
+                try {
+                    while (c.moveToNext()) {
+                        tv1.setText(c.getString(0));
+                    }
+                } finally {
+                    c.close();
+                }
             }
 
         } catch (Exception e) {
@@ -148,5 +156,13 @@ public class UserHomeActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("No", null)
                 .show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.close();
+        }
     }
 }

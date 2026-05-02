@@ -147,18 +147,23 @@ public class RegisterActivity extends AppCompatActivity {
                     String mpass = null;
 
                     Cursor cursor = adapter.selectUser();
-                    while (cursor.moveToNext()) {
-                        mpass = cursor.getString(3).toString();
-                        if (sphone.equalsIgnoreCase(mpass)) {
+                    try {
+                        while (cursor.moveToNext()) {
+                            mpass = cursor.getString(3).toString();
+                            if (sphone.equalsIgnoreCase(mpass)) {
 
-                            Toast.makeText(getApplicationContext(), "This User is Already Registered..!", Toast.LENGTH_SHORT).show();
-                            Log.w("5", "ok");
-                            return;
+                                Toast.makeText(getApplicationContext(), "This User is Already Registered..!", Toast.LENGTH_SHORT).show();
+                                Log.w("5", "ok");
+                                return;
+                            }
                         }
+                    } finally {
+                        cursor.close();
                     }
 
-                        String ano=null;
-                        Cursor c = adapter.userselect();
+                    String ano = null;
+                    Cursor c = adapter.userselect();
+                    try {
                         while (c.moveToNext()) {
                             ano = c.getString(4).toString();
                             if (sadhar.equalsIgnoreCase(ano)) {
@@ -169,6 +174,9 @@ public class RegisterActivity extends AppCompatActivity {
                             }
 
                         }
+                    } finally {
+                        c.close();
+                    }
 
 
 
@@ -242,19 +250,26 @@ public class RegisterActivity extends AppCompatActivity {
         int no1;
         int flag = 0;
         Cursor cursor1 = adapter.selectUser();
-        //cursor1.moveToFirst();
-        while (cursor1.moveToNext()) {
-            flag = 1;
+        try {
+            //cursor1.moveToFirst();
+            while (cursor1.moveToNext()) {
+                flag = 1;
+            }
+        } finally {
+            cursor1.close();
         }
-        cursor1.close();
         //setting id into edit text
         if (flag == 1) {
             try {
                 Cursor cursor2 = adapter.userincrementid();
-                while (cursor2.moveToNext()) {
-                    if (cursor2.getString(0) != null)
-                        number = cursor2.getString(0);
+                try {
+                    while (cursor2.moveToNext()) {
+                        if (cursor2.getString(0) != null)
+                            number = cursor2.getString(0);
 
+                    }
+                } finally {
+                    cursor2.close();
                 }
                 int n = Integer.parseInt(number);
                 no1 = n + 1;
@@ -359,7 +374,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(),
-                            "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+                        "SMS faild, please try again.", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -368,4 +383,11 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.close();
+        }
+    }
 }

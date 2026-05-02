@@ -13,12 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthcard_demo.auth.JwtAuthManager;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextView tvRegister, tvForgetPassword;
     private Button btnLogin;
     private EditText edtMedicalId, edtPassword;
     private TestAdapter adapter;
+    // New: orchestrates best-effort JWT retrieval after successful local login.
+    private JwtAuthManager jwtAuthManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "Database error: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+        // Initialize JWT manager (non-breaking; only used after successful login)
+        jwtAuthManager = new JwtAuthManager(this);
 
         // Click listener for forget password
         tvForgetPassword.setOnClickListener(view -> {
@@ -72,6 +79,10 @@ public class LoginActivity extends AppCompatActivity {
             // Check login in database
             int i = adapter.checkUserLogin(medicalId, password);
             if (i == 1) {
+                // Best-effort JWT authentication in background; does not affect local login.
+                if (jwtAuthManager != null) {
+                    jwtAuthManager.authenticatePatientAsync(medicalId, password);
+                }
                 userLogin(medicalId);
                 return;
             }

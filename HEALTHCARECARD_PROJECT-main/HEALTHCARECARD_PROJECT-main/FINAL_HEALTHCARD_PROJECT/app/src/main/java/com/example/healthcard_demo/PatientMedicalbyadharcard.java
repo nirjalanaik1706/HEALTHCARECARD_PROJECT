@@ -67,7 +67,7 @@ public class PatientMedicalbyadharcard extends AppCompatActivity {
             sp1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    String id=sp1.getItemAtPosition(position).toString();
+                    String id = sp1.getItemAtPosition(position).toString();
                   /*  Intent i = new Intent(PatientMedicalbyadharcard.this, ViewUserdetails.class);
                     i.putExtra("Key",id);
                     startActivity(i);*/
@@ -78,8 +78,9 @@ public class PatientMedicalbyadharcard extends AppCompatActivity {
                     TableLayout layout=new TableLayout(context);
                     layout.setGravity(Gravity.CENTER);
 
-                    Cursor c=adapter.getalluserdetails(id);
-                    while (c.moveToNext()) {
+                    Cursor c = adapter.getalluserdetails(id);
+                    try {
+                        while (c.moveToNext()) {
 
                         final TableRow rrr=new TableRow(context);
                         TextView tvrr=new TextView(context);
@@ -188,19 +189,21 @@ public class PatientMedicalbyadharcard extends AppCompatActivity {
                         rrrtat.addView(tv1tam);
                         layout.addView(rrrtat);
 
-                        alertbuilder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                            alertbuilder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
 
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
-
-                            }
-                        });
-
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // no-op
+                                }
+                            });
 
 
-                        alertbuilder.setView(layout);
 
+                            alertbuilder.setView(layout);
+
+                        }
+                    } finally {
+                        c.close();
                     }
 
 
@@ -218,20 +221,31 @@ public class PatientMedicalbyadharcard extends AppCompatActivity {
     }
 
     private void AddMedicalId() {
-        Cursor c=adapter.selectUser();
-        list=new ArrayList<String>();
-        while(c.moveToNext())
-        {
+        Cursor c = adapter.selectUser();
+        list = new ArrayList<String>();
+        try {
+            while (c.moveToNext()) {
 
-            list.add(c.getString(4).toString());
+                list.add(c.getString(4).toString());
 
+            }
+        } finally {
+            c.close();
         }
-        ad=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,list);
+        ad = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, list);
 
         sp1.setAdapter(ad);
 
 
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.close();
+        }
     }
 }

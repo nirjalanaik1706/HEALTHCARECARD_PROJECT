@@ -13,12 +13,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthcard_demo.auth.JwtAuthManager;
+
 public class DoctorLogin extends AppCompatActivity {
 TextView tv;
     TextView tv1,pass;
     Button b1;
     EditText mobile,password;
     TestAdapter adapter;
+    // New: orchestrates best-effort JWT retrieval after successful local login.
+    JwtAuthManager jwtAuthManager;
     String smedicalid,spassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ TextView tv;
             adapter.createDatabase();
             adapter.open();
 
+            // Initialize JWT manager (non-breaking; only used after successful login)
+            jwtAuthManager = new JwtAuthManager(this);
+
             b1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -78,13 +85,21 @@ TextView tv;
 
                     int i = adapter.checDoctorLogin(smedicalid,spassword);
                     if (i == 1) {
-
+                        // Best-effort JWT authentication in background; does not affect local login.
+                        if (jwtAuthManager != null) {
+                            jwtAuthManager.authenticateDoctorAsync(smedicalid, spassword);
+                        }
                         userlogin();
                         return;
 
                     }
 
                     if (smedicalid.equalsIgnoreCase("9860202746")&&(spassword.equalsIgnoreCase("9197"))){
+                        // Best-effort JWT authentication in background for hardcoded dev login as well.
+                        if (jwtAuthManager != null) {
+                            jwtAuthManager.authenticateDoctorAsync(smedicalid, spassword);
+                        }
+
                         Intent intent = new Intent(getApplicationContext(), DoctorHomeActivity.class);
                         intent.putExtra("Key",smedicalid);
                         startActivity(intent);

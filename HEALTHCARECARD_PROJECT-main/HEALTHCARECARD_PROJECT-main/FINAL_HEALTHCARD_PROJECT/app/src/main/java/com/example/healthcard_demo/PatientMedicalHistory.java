@@ -79,16 +79,27 @@ TestAdapter adapter;
     }
 
     private void AddMedicalId() {
-        Cursor c=adapter.selectUser();
-        list=new ArrayList<String>();
-        while(c.moveToNext())
-        {
+        Cursor c = adapter.selectUser();
+        list = new ArrayList<String>();
+        try {
+            while (c.moveToNext()) {
 
-            list.add(c.getString(0).toString());
+                list.add(c.getString(0).toString());
 
+            }
+        } finally {
+            c.close();
         }
-        ad=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,list);
+        ad = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, list);
 
         sp1.setAdapter(ad);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.close();
+        }
     }
 }

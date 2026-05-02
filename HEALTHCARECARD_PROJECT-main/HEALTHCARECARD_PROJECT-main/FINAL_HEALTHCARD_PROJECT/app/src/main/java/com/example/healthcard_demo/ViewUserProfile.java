@@ -16,6 +16,7 @@ public class ViewUserProfile extends AppCompatActivity {
     TestAdapter adapter;
     EditText mid, name, address, phone, password;
     String sphone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,40 +28,51 @@ public class ViewUserProfile extends AppCompatActivity {
         address = (EditText) findViewById(R.id.txt_paddress);
         phone = (EditText) findViewById(R.id.txt_pphone);
       //  password = (EditText) findViewById(R.id.txt_ppassword);
-       b1=(Button) findViewById(R.id.btn_backk);
+        b1=(Button) findViewById(R.id.btn_backk);
 
         try {
             adapter = new TestAdapter(this);
             adapter.createDatabase();
             adapter.open();
 
-
-
             Bundle bundle = getIntent().getExtras();
-            medicalid = bundle.getString("MedicalID");
-
-            Cursor c=adapter.getUserdetails(medicalid);
-            while (c.moveToNext()){
-                mid.setText(c.getString(0));
-                name.setText(c.getString(1));
-                address.setText(c.getString(2));
-                phone.setText(c.getString(3));
-               // password.setText(c.getString(4));
-
+            if (bundle != null) {
+                medicalid = bundle.getString("MedicalID");
             }
 
+            if (medicalid != null && adapter != null) {
+                Cursor c = adapter.getUserdetails(medicalid);
+                try {
+                    while (c.moveToNext()) {
+                        mid.setText(c.getString(0));
+                        name.setText(c.getString(1));
+                        address.setText(c.getString(2));
+                        phone.setText(c.getString(3));
+                        // password.setText(c.getString(4));
+                    }
+                } finally {
+                    c.close();
+                }
+            }
 
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ViewUserProfile.this, UserHomeActivity.class);
+                startActivity(i);
+            }
+        });
 
-b1.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent i=new Intent(ViewUserProfile.this,UserHomeActivity.class);
-        startActivity(i);
     }
-});
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.close();
+        }
     }
 }
