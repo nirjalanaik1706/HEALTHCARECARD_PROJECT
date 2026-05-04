@@ -11,7 +11,6 @@ import android.content.SharedPreferences;
  * authentication and can be safely introduced without behavior changes.
  */
 public class JwtTokenStore {
-// Note: In a production app, consider using encrypted storage for sensitive data like JWTs.
     private static final String PREFS_NAME = "jwt_prefs";
     private static final String KEY_PATIENT_TOKEN = "patient_jwt_token";
     private static final String KEY_DOCTOR_TOKEN = "doctor_jwt_token";
@@ -46,6 +45,7 @@ public class JwtTokenStore {
     public String getDoctorToken() {
         return prefs.getString(KEY_DOCTOR_TOKEN, null);
     }
+    // 
 
     public long getPatientTokenExpiresAt() {
         return prefs.getLong(KEY_PATIENT_EXPIRES_AT, 0L);
